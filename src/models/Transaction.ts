@@ -23,9 +23,10 @@ class Transaction {
   @Column()
   value: number;
 
-  @ManyToOne(() => Category)
+  @ManyToOne(() => Category, category => category.transaction, { eager: true })
   @JoinColumn({ name: 'category_id' })
   category: Category;
+  //Showing full category inside the transaction in resp
 
   @Column()
   category_id: string;
